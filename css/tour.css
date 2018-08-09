@@ -1,0 +1,69 @@
+/********** HOME/PACKAGES TOURS ***********/
+#tour {
+    max-width: 1263px;
+    height: 1150px;
+    margin: 30px auto;
+    text-align: center;
+}
+#tour .center h2 {
+    font-size: 45px;
+    color: #666;
+    margin: 10px 0;
+}
+#tour .center p {
+    color: #666;
+    font-size: 20px;
+    margin: 10px;
+}
+#tour .tour_title {
+    height: 40px;
+    overflow: hidden;
+}
+#tour figure {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 4px;
+    border-radius: 4px;
+    width: 32.4%;
+    margin: 15px 0.4%;
+    text-align: left;
+    float: left;
+    position: relative;
+}
+#tour figure img {
+    vertical-align: middle;
+    width:400px;
+    height:250px;
+}
+#tour figure figcaption {
+    color: #777;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    padding: 7px 0 5px 0;
+}
+#tour figcaption .title {
+    font-weight: normal;
+    color: #333;
+}
+#tour .sat {
+    float: right;
+    font-style: normal;
+    font-size: 13px;
+    color: #999;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+#tour .price {
+    color: #f60;
+    font-size: 14px;
+}
+#tour .price strong {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+#tour figure:hover{
+     opacity: 0.3;
+}
+

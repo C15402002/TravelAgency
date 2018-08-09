@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!---------- <?php include 'dbConnect.php'; ?> -------->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vaykay travels || Dublin </title>
+    
+        <link rel="stylesheet" href="css/main.css">
+        <link rel = "stylesheet" href="css/flight.css">
+   
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+    
+<body>
+   <header id="header">
+  <div class="center">
+    <h1 class="logo"> </h1>
+    <nav class="link">
+      <h2 class="hidden">navigation</h2>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="flight.html">Flights</a></li>
+        <li class="active"><a href="cruise.html">Cruise</a></li>
+        <li><a href="package.html">Packages</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="adver">
+  <img src="img/italy.jpg" alt="main" style="width:100%; height: 400px;" >
+    <hgroup>
+      <h2>Amazing excursions</h2>
+    </hgroup>
+</div>
+<br>
+  <div class="list flight">
+    <form action="###">
+      <h2> Search for a cruise holiday</h2>
+      <br>
+      <div class="location">
+        <p>
+          <label for="to">Place</label>
+          <input type="text" name="to" id="to" placeholder="City, country...">
+        </p>
+      </div>
+      <div class="date">
+        <p>
+          <label for="depart">Depart date</label>
+          <input type="text" name="depart" id="depart" placeholder="Type Departing Date">
+        </p>
+        <p>
+          <label for="return">Return date</label>
+          <input type="text" name="return" id="return" placeholder="Type Returning Date">
+        </p>
+      </div>
+      <div class="schbtn">
+        <p>
+          <button type="submit" class="schfly">Search</button>
+        </p>
+      </div>
+    </form>
+
+<div class="latest">
+      <h2> Browse latest</h2>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th class="min">GST</th>
+            <th>Booking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bangkok</td>
+            <td>18/06</td>
+            <td class="price">$380</td>
+            <td class="min">$45</td>
+    
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>London</td>
+            <td>23/05</td>
+            <td class="price">$1180</td>
+            <td class="min">$130</td>
+
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>HongKong</td>
+            <td>01/07</td>
+            <td class="price">$260</td>
+            <td class="min">$32</td>
+         
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Tokyo</td>
+            <td>22/08</td>
+            <td class="price">$780</td>
+            <td class="min">$92</td>
+     
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Dubai</td>
+            <td>12/06</td>
+            <td class="price">$1298</td>
+            <td class="min">$173</td>
+
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Rome</td>
+            <td>21/02</td>
+            <td class="price">$998</td>
+            <td class="min">$113</td>
+          
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Sydney</td>
+            <td>20/09</td>
+            <td class="price">$1113</td>
+            <td class="min">$124</td>
+
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Seoul</td>
+            <td>18/07</td>
+            <td class="price">$650</td>
+            <td class="min">$78</td>
+            
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Paris</td>
+            <td>11/04</td>
+            <td class="price">$1580</td>
+            <td class="min">$180</td>
+            
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Seattle</td>
+            <td>16/03</td>
+            <td class="price">$1398</td>
+            <td class="min">$179</td>
+          
+            <td><a href="###">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6">Load more...</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+
+</div>
+
+   <footer id="footer">
+  <div class="top sm-hidden">
+    <div class="column left">
+      <h2>About</h2>
+      <hr>
+      <ul>
+        <li>How many Countries?</li>
+        <li>Best for our guests</li>
+        <li>Package trips</li>
+        <li>Travel services</li>
+      </ul>
+    </div>
+    <div class="column mid">
+      <h2>JOIN US!</h2>
+      <hr>
+      <ul>
+        <button onclick ="location.href='login.html'" class="button" >Login</button>  
+        <button onclick ="location.href='register.html'"class="button" >Register</button>
+      </ul>     
+    </div>
+    <div class="column right">
+      <h2>Contact</h2>
+      <hr>
+      <ul>
+        <li>Email: info@vaykaytravels.ie</li>
+        <li>Phone: 01-2233432.</li>
+        <li>Address: 44 Merrions Square, Dublin, Ireland.</li>
+      </ul>     
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="bottom">Copyright &copy; VayKay Travels 2018 | Travel Agency</div>
+</footer>
+
+
+</body>
+</html>
