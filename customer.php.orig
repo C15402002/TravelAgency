@@ -49,6 +49,27 @@ session_start();
 	<button type="submit">upload</button>
 </form>
 
+<<<<<<< HEAD
+<form action= "login.php" method="POST" >
+	<button type = "button"
+=======
+<form action= "login.php"
+
+>>>>>>> cc8ea7a9b66d02832423211ae76e9f289dca67a4
+
+
+
+
+
+
+<<<<<<< HEAD
+<input type="submit" name="submit" class="submit action-button" value="Submit" />
+=======
+>>>>>>> cc8ea7a9b66d02832423211ae76e9f289dca67a4
+
+
+
+
 
 
 </body>
