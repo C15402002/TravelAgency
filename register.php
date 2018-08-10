@@ -39,7 +39,7 @@
 
 
 
-<form id="msform">
+<form id="msform" action = "register.php">
   <?php include('errors.php'); ?>
   <!-- progressbar -->
   <ul id="progressbar">
@@ -66,10 +66,10 @@
     <h2 class="fs-title">Personal Details</h2>
     <input type="text" name="fname" placeholder="First Name" value="<?php echo $fname; ?>"  />
     <input type="text" name="sname" placeholder=" Surname" value="<?php echo $sname; ?>"  />
-    <input type="text" name="telephone" placeholder="Phone" value="<?php echo $telephone; ?>" />
-    <input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>" />
+    <input type="tel" name="telephone" placeholder="Phone" value="<?php echo $telephone; ?>" />
+    <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" />
     <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="submit" name="reg_submit" class="submit action-button" value="Submit" />
+    <input type="submit" name="reg_submit" class="reg_submit action-button" value="Submit" />
   </fieldset>
 
 </form>

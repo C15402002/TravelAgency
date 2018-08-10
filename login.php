@@ -1,10 +1,7 @@
-<?php
-
-session_start();
-?>
 
 <!DOCTYPE html>
-<!---------- <?php include 'dbConnect.php'; ?> -------->
+<?php include('server.php') ?> 
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -53,9 +50,9 @@ session_start();
   <fieldset>
     <h2 class="fs-title">Login</h2><br>
     <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type="email" name="email"placeholder="Email Address">
+    <input type="text" name="username"placeholder="Username">
     <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+    <input type="submit" name="log_submit" class="submit action-button" value="Submit" />
         <div class="forgot">
           <a href="reset.html">Forgot password?</a>
         </div>

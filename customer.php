@@ -1,9 +1,5 @@
-<?php
-session_start();
-
-
-?>
 <!DOCTYPE html>
+<?php include('server.php') ?> 
 <html>
     <head>
         <meta charset="utf-8">
@@ -49,7 +45,10 @@ session_start();
 	<button type="submit">upload</button>
 </form>
 
-
+<?php if(isset($_SESSION['username'])) : ?>
+  <p>welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+  <p><a href ="main.html?logout ='1'" style ="color: red;">logout</a></p>
+<?php endif ?>
 
 </body>
 </html>
