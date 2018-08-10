@@ -53,7 +53,7 @@
   <fieldset>
     <h2 class="fs-title">Create your account</h2><br>
       <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type = "text" name = "username" value="<?php echo $username; ?>" placeholder = "Username "/>
+    <input type = "text" name = "username" placeholder = "Username "/>
     <input type="password" name="password_1" placeholder="Password" />
     <input type="password" name="password_2" placeholder="Confirm Password" />
     <input type="button" name="next" class="next action-button" value="Next" />
@@ -64,10 +64,10 @@
 
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
-    <input type="text" name="fname" placeholder="First Name" value="<?php echo $fname; ?>"  />
-    <input type="text" name="sname" placeholder=" Surname" value="<?php echo $sname; ?>"  />
-    <input type="tel" name="telephone" placeholder="Phone" value="<?php echo $telephone; ?>" />
-    <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" />
+    <input type="text" name="fname" placeholder="First Name"   />
+    <input type="text" name="sname" placeholder=" Surname" />
+    <input type="tel" name="telephone" placeholder="Phone" />
+    <input type="email" name="email" placeholder="Email"/>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="submit" name="reg_submit" class="reg_submit action-button" value="Submit" />
   </fieldset>
@@ -92,8 +92,8 @@
       <h2>JOIN US!</h2>
       <hr>
       <ul>
-        <button onclick ="location.href='login.html'" class="button" >Login</button>  
-        <button onclick ="location.href='register.html'" class="button" >Register</button>
+        <button onclick ="location.href='login.php'" class="button" >Login</button>  
+        <button onclick ="location.href='register.php'" class="button" >Register</button>
       </ul>     
     </div>
     <div class="column right">

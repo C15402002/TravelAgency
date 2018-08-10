@@ -12,16 +12,13 @@ $errors =array();
 $db = mysqli_connect('localhost', 'root', '','vaykay');
 
 //register
-if(isset($_POST['reg_submit'])) {
+if(isset($_POST['next'])) {
+
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-	$fname = mysqli_real_escape_string($db, $_POST['fname']);
-	$sname = mysqli_real_escape_string($db, $_POST['sname']);
-	$email = mysqli_real_escape_string($db, $_POST['email']);
-	$telephone = mysqli_real_escape_string($db, $_POST['telephone']);
 
-	if(empty($username)) {
+if(empty($username)) {
 		array_push($errors, "Username is required");
 	}
 
@@ -32,6 +29,14 @@ if(isset($_POST['reg_submit'])) {
 	if($password_1 != $password_2){
 		array_push($errors, "The two passwords do not match");
 	}
+
+
+}
+if(isset($_POST['reg_submit'])) {
+	$fname = mysqli_real_escape_string($db, $_POST['fname']);
+	$sname = mysqli_real_escape_string($db, $_POST['sname']);
+	$email = mysqli_real_escape_string($db, $_POST['email']);
+	$telephone = mysqli_real_escape_string($db, $_POST['telephone']);
 
 	if(empty($fname)) {
 		array_push($errors, "First name is required");
@@ -76,6 +81,7 @@ if(isset($_POST['reg_submit'])) {
 
 }
 
+//login 
 
 if(isset($_POST['log_submit'])){
 	$username = mysqli_real_escape_string($db, $_POST['username']);

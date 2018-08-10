@@ -79,8 +79,8 @@
       <h2>JOIN US!</h2>
       <hr>
       <ul>
-        <button onclick ="location.href='login.html'" class="button" >Login</button>  
-        <button onclick ="location.href='register.html'"class="button" >Register</button>
+        <button onclick ="location.href='login.php'" class="button" >Login</button>  
+        <button onclick ="location.href='register.php'"class="button" >Register</button>
       </ul>     
     </div>
     <div class="column right">
