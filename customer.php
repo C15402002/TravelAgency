@@ -10,9 +10,6 @@
     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -40,14 +37,27 @@
     </hgroup>
 </div>
 
+<!----
 <form action ="upload.php" method="POST" entype="multipart/form-data">
 	<input type="file" name="file">
 	<button type="submit">upload</button>
-</form>
+</form> --->
+  <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <h3>
+          <?php 
+            echo $_SESSION['success']; 
+            unset($_SESSION['success']);
+          ?>
+        </h3>
+      </div>
+    <?php endif ?>
+
 
 <?php if(isset($_SESSION['username'])) : ?>
   <p>welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-  <p><a href ="main.html?logout ='1'" style ="color: red;">logout</a></p>
+  <p><a href ="login.php?logout ='1'" style ="color: red;">logout</a></p>
 <?php endif ?>
 
 </body>

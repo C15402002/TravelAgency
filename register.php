@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<?php include('server.php') ?> 
 <html>
+<?php include('server.php') ?> 
     <head>
         <meta charset="utf-8">
         <title>vaykay travels || Dublin </title>
@@ -9,7 +8,10 @@
         <link rel="stylesheet" href="css/form.css">
     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
         
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> 
+
  
     </head>
     
@@ -38,9 +40,8 @@
 </div>
 
 
-
-<form id="msform" action = "register.php">
-  <?php include('errors.php'); ?>
+<form id="msform" action = "register.php" method = "post">
+  
   <!-- progressbar -->
   <ul id="progressbar">
     <li class="active">Account Setup</li>
@@ -48,32 +49,34 @@
   </ul>
 
 
-
   <!-- fieldsets -->
   <fieldset>
     <h2 class="fs-title">Create your account</h2><br>
       <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type = "text" name = "username" placeholder = "Username "/>
-    <input type="password" name="password_1" placeholder="Password" />
-    <input type="password" name="password_2" placeholder="Confirm Password" />
-    <input type="button" name="next" class="next action-button" value="Next" />
+    <input type = "text" name = "username" placeholder = "Username " required>
+    <input type="password" name="password_1" placeholder="Password" required>
+    <input type="password" name="password_2" placeholder="Confirm Password" required>
+    <input type="button" name="next" class="next action-button" value="Next" >
          <div class="forgot">
         <a href="login.php">Already have an account?</a>
       </div>
+
   </fieldset>
 
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
-    <input type="text" name="fname" placeholder="First Name"   />
-    <input type="text" name="sname" placeholder=" Surname" />
-    <input type="tel" name="telephone" placeholder="Phone" />
-    <input type="email" name="email" placeholder="Email"/>
+    <input type="text" name="fname" placeholder="First Name"  required>
+    <input type="text" name="sname" placeholder=" Surname" required>
+    <input type="tel" name="telephone" placeholder="Phone" required>
+    <input type="email" name="email" placeholder="Email" required>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="submit" name="reg_submit" class="reg_submit action-button" value="Submit" />
+    <input type="submit" name="submit" class="reg_submit action-button" value="Submit" />
+  
   </fieldset>
-
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script  src="js/reg.js"></script>
 </form>
-
 
 
   <footer id="footer">
@@ -93,7 +96,7 @@
       <hr>
       <ul>
         <button onclick ="location.href='login.php'" class="button" >Login</button>  
-        <button onclick ="location.href='register.php'" class="button" >Register</button>
+        <button onclick ="location.href='register.php'" class="button active" >Register</button>
       </ul>     
     </div>
     <div class="column right">
@@ -109,10 +112,6 @@
   <div class="clearfix"></div>
   <div class="bottom">Copyright &copy; VayKay Travels 2018 | Travel Agency</div>
 </footer>
-
- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-
-    <script  src="js/reg.js"></script>
 </body>
+
 </html>

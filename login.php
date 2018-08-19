@@ -15,6 +15,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> 
+
+
 </head>
 
 <body>
@@ -43,18 +46,17 @@
 </div>
 
 
-<form id="msform">
+<form id="msform" action = "login.php" method = "post">
  
-
   <!-- fieldsets -->
   <fieldset>
     <h2 class="fs-title">Login</h2><br>
     <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type="text" name="username"placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
+    <input type="email" name="mail"placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
     <input type="submit" name="log_submit" class="submit action-button" value="Submit" />
         <div class="forgot">
-          <a href="reset.html">Forgot password?</a>
+          <a href="register.php">Don't have an account?</a>
         </div>
   </fieldset>
  
@@ -79,7 +81,7 @@
       <h2>JOIN US!</h2>
       <hr>
       <ul>
-        <button onclick ="location.href='login.php'" class="button" >Login</button>  
+        <button onclick ="location.href='login.php'" class="button active" >Login</button>  
         <button onclick ="location.href='register.php'"class="button" >Register</button>
       </ul>     
     </div>
