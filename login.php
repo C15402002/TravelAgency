@@ -44,15 +44,13 @@
       <h2>Login</h2>
     </hgroup>
 </div>
-<?php
-    if (isset($_SESSION["error"]))
-    {
-      echo('<p1 style="color:rgb(153,92,0)">Error:'.
-      $_SESSION["error"]."</p1>\n");
-      unset($_SESSION["error"]);
-    }
-    ?>
-
+<br>
+<?php if (isset($_SESSION['error']))
+{
+    echo"<p style='color:red; text-align:center;'>".$_SESSION['error']."</p>";
+    unset($_SESSION['error']);
+}
+?>
 
 <form id="msform" action = "login.php" method = "post">
  
@@ -60,9 +58,10 @@
   <fieldset>
     <h2 class="fs-title">Login</h2><br>
     <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type="email" name="email"placeholder="Email" required>
+    <input type="text" name="username"placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="submit" name="log_submit" class="submit action-button" value="Submit" />
+
         <div class="forgot">
           <a href="register.php">Don't have an account?</a>
         </div>
@@ -91,6 +90,8 @@
       <ul>
         <button onclick ="location.href='login.php'" class="button active" >Login</button>  
         <button onclick ="location.href='register.php'"class="button" >Register</button>
+        <li><a href ="customer.php">My Profile</a></li>
+        <li><a href ="mybooking.php">My Bookings</a></li>
       </ul>     
     </div>
     <div class="column right">

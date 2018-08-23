@@ -80,7 +80,8 @@
 </form>
 
 
-  <footer id="footer">
+
+   <footer id="footer">
   <div class="top sm-hidden">
     <div class="column left">
       <h2>About</h2>
@@ -96,8 +97,10 @@
       <h2>JOIN US!</h2>
       <hr>
       <ul>
-        <button onclick ="location.href='login.php'" class="button" >Login</button>  
-        <button onclick ="location.href='register.php'" class="button active" >Register</button>
+        <button onclick ="location.href='login.php'" class="button active" >Login</button>  
+        <button onclick ="location.href='register.php'"class="button" >Register</button>
+        <li><a href ="customer.php">My Profile</a></li>
+        <li><a href ="mybooking.php">My Bookings</a></li>
       </ul>     
     </div>
     <div class="column right">

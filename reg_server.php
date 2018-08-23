@@ -1,8 +1,6 @@
 <?php
 	session_start();
 	$_SESSION['success'] = "";
-	$errors = array(); 
-	$_SESSION['success'] = "";
 
 	$db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
 	if(isset($_POST['submit']))
@@ -20,9 +18,9 @@
 			echo "The two passwords do not match";
 		}
 
-if (count($errors) == 0) {
+	if (count($errors) == 0) {
 			$password = md5($password_1);
-	$query = "INSERT INTO customer (fname, sname, email, telephone, username, password)
+			$query = "INSERT INTO customer (fname, sname, email, telephone, username, password)
 			VALUES('$fname', '$sname', '$email', '$telephone', '$username', '$password')";
 
 		if (mysqli_query($db, $query))
@@ -43,9 +41,4 @@ if (count($errors) == 0) {
 
 	}
 ?>
-
-
-
-
-}
 
