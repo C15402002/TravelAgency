@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include('server.php') ?> 
+<?php include('log_server.php') ?> 
+<?php include('reg_server.php') ?> 
 <html>
     <head>
         <meta charset="utf-8">
@@ -44,7 +45,7 @@
 </form> --->
   <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
+      <div id="error" class = "success" >
         <h3>
           <?php 
             echo $_SESSION['success']; 

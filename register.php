@@ -1,5 +1,6 @@
 <html>
-<?php include('server.php') ?> 
+<?php include('reg_server.php') ?> 
+
     <head>
         <meta charset="utf-8">
         <title>vaykay travels || Dublin </title>

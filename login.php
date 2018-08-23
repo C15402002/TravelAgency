@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<?php include('server.php') ?> 
+<?php include('log_server.php') ?> 
 
 <html>
     <head>
@@ -44,6 +44,14 @@
       <h2>Login</h2>
     </hgroup>
 </div>
+<?php
+    if (isset($_SESSION["error"]))
+    {
+      echo('<p1 style="color:rgb(153,92,0)">Error:'.
+      $_SESSION["error"]."</p1>\n");
+      unset($_SESSION["error"]);
+    }
+    ?>
 
 
 <form id="msform" action = "login.php" method = "post">
@@ -52,7 +60,7 @@
   <fieldset>
     <h2 class="fs-title">Login</h2><br>
     <img src ="icon/log.png" alt="login" style="width:90px; height:90px;"><br>
-    <input type="email" name="mail"placeholder="Email" required>
+    <input type="email" name="email"placeholder="Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="submit" name="log_submit" class="submit action-button" value="Submit" />
         <div class="forgot">
