@@ -53,6 +53,8 @@
   </div>
 </div>
 
+    <script  src="js/gethint.js"></script>
+
 
 <div id="tour">
   <section class="center">
