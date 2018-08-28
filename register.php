@@ -40,6 +40,13 @@
     </hgroup>
 </div>
 
+<br>
+<?php if (isset($_SESSION['error']))
+{
+    echo"<p style='color:red; text-align:center;'>".$_SESSION['error']."</p>";
+    unset($_SESSION['error']);
+}
+?>
 
 <form id="msform" action = "register.php" method = "post">
   
@@ -71,7 +78,7 @@
     <input type="tel" name="telephone" placeholder="Phone" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="submit" name="submit" class="reg_submit action-button" value="Submit" />
+    <input type="submit" name="reg_submit" class="reg_Submit action-button" value="Submit" />
   
   </fieldset>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

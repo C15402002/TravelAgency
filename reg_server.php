@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	$_SESSION['success'] = "";
-
+	
 	$db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
-	if(isset($_POST['submit']))
+
+	if(isset($_POST['reg_submit']))
 	{
 		$username = $_POST['username'];
 		$password_1 =  $_POST['password_1'];
@@ -12,32 +12,37 @@
 		$sname =  $_POST['sname'];
 		$email =  $_POST['email'];
 		$telephone =  $_POST['telephone'];
-
-
-	if ($password_1 != $password_2) {
-			echo "The two passwords do not match";
-		}
-
-	if (count($errors) == 0) {
-			$password = md5($password_1);
-			$query = "INSERT INTO customer (fname, sname, email, telephone, username, password)
-			VALUES('$fname', '$sname', '$email', '$telephone', '$username', '$password')";
-
-		if (mysqli_query($db, $query))
-		{
-    		$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You have successfully signed up!";
-			header('location: customer.php');
-
-		}
-		else
-		{
-    		echo "Error: " . $query . "<br>" . mysqli_error($db);
-		}
 		
-		}
+		  if ($password_1 != $password_2) {
+				echo "The two passwords do not match";
+  			}
 
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $user_check_query = "SELECT * FROM customer WHERE username='$username' LIMIT 1";
+  $result = mysqli_query($db, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
 
+    if ($user['username'] === $username) {
+      echo "Username already exists";
+    }
+    if ($user['username'] != $username){
+  	$password = md5($password_1);//encrypt the password before saving in the database
+
+  	$query = "INSERT INTO customer (fname, sname, email, telephone, username, password)
+			VALUES('$fname', '$sname', '$email', '$telephone', '$username', '$password')";
+  	
+  	mysqli_query($db, $query);
+  	$_SESSION['username'] = $username;
+			$_SESSION['loggedIn'] = true;
+			header('location: customer.php');
+			return;
+  }
+  else{
+  	
+			$_SESSION['error'] = "Incorrect username/password";
+			return;
+  }
 
 	}
 ?>

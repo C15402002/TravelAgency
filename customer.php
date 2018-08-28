@@ -44,6 +44,9 @@
     echo "Please log in first to see this page.";
 }
 ?>
+
+
+
 <!----
 <form action ="upload.php" method="POST" entype="multipart/form-data">
 	<input type="file" name="file">
