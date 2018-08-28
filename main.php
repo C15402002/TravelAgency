@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel = "stylesheet" href="css/slide.css">
         <link rel = "stylesheet" href="css/tour.css">
+        <link rel = "stylesheet" href="css/gethint.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -21,7 +22,7 @@
     <nav class="link">
       <h2 class="hidden">navigation</h2>
       <ul>
-        <li class="active"><a href="main.html">Home</a></li>
+        <li class="active"><a href="main.php">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="flight.html">Flights</a></li>
         <li><a href="cruise.html">Cruise</a></li>
@@ -30,34 +31,24 @@
     </nav>
   </div>
 </header>
-<script>
 
-  function showHint(str)
-   {
-     if (str.length == 0)
-     {
-       document.getElementById("txtHint").innerHTML = "";
-       return;
-      }
-      else
-      {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200)
-            {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "gethint.php?q=" + str, true);
-        xmlhttp.send();
-    }
-  </script>
 <div id="adver">
   <img src="img/italy.jpg" alt="main" style="width:100%; height: 400px;">
   <div class="center"></div>
   <div class="center copy">
-    <input type="text" class="search" placeholder="Enter a city, country..." onkeyup="showHint(this.value)"></p>
-     <font size="2"><i>name sugestions:</i></font> <span id="txtHint"></span>
+    <input type="text" class="search" placeholder="Enter a country..." id="default" list="languages">
+
+  <datalist id="languages">
+    <option value="Thailand">
+    <option value="Japan">
+    <option value="China">
+    <option value="Australia">
+    <option value="Spain">
+    <option value="Philipines">
+    <option value="Italy">
+    <option value="Greece">
+  </datalist>
+
     <button class="button" onclick ="location.href='result.php'">Search</button>    
   </div>
 </div>
