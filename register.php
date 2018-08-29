@@ -23,11 +23,11 @@
     <nav class="link">
       <h2 class="hidden">navigation</h2>
       <ul>
-        <li><a href="main.html">Home</a></li>
-        <li ><a href="about.html">About</a></li>
-        <li><a href="flight.html">Flights</a></li>
-        <li><a href="cruise.html">Cruise</a></li>
-        <li><a href="package.html">Packages</a></li>
+        <li><a href="main.php">Home</a></li>
+        <li ><a href="about.php">About</a></li>
+        <li><a href="flight.php">Flights</a></li>
+        <li><a href="cruise.php">Cruise</a></li>
+        <li><a href="package.php">Packages</a></li>
       </ul>
     </nav>
   </div>

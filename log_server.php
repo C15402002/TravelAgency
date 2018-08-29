@@ -1,14 +1,12 @@
 <?php
-	session_start();
-
-	
-	$db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
-
+  session_start();  
+  $db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
 
 if (isset($_POST['log_submit']))
 	{
 		$username = $_POST['username'];
 		$password = $_POST['password'];
+		
 		$result = mysqli_query($db,"SELECT * from customer where username = '$username'
 		and password = '$password'");
 		
@@ -27,6 +25,8 @@ if (isset($_POST['log_submit']))
 			
 		}
 	}
-	
 
 ?>
+	
+
+

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<?php include('log_server.php') ?> 
-<?php include('reg_server.php') ?> 
+<?php include("log_server.php");?>
+<?php
+  session_start();  
+  $db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
+ ?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,6 +12,8 @@
     
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/form.css">
+        <link rel="stylesheet" href="css/profile.css">
+
     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,11 +26,11 @@
     <nav class="link">
       <h2 class="hidden">navigation</h2>
       <ul>
-        <li><a href="main.html">Home</a></li>
-        <li ><a href="about.html">About</a></li>
-        <li><a href="flight.html">Flights</a></li>
-        <li><a href="cruise.html">Cruise</a></li>
-        <li><a href="package.html">Packages</a></li>
+        <li><a href="main.php">Home</a></li>
+        <li ><a href="about.php">About</a></li>
+        <li><a href="flight.php">Flights</a></li>
+        <li><a href="cruise.php">Cruise</a></li>
+        <li><a href="package.php">Packages</a></li>
       </ul>
     </nav>
   </div>
@@ -37,26 +43,34 @@
       <h2>Profile</h2>
     </hgroup>
 </div>
+
 <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-    echo "Welcome to the member's area, " .$_SESSION['username'] . "!"; ?>
-    <p><a href ="logout.php?" style ="color: red;">logout</a></p><?php 
+  
+  $sql = "SELECT username, fname, sname, email, telephone FROM CUSTOMER WHERE USERNAME = '" . $_SESSION['username'] . "'";
+  $result = mysqli_query($db, $sql);
+  while($row = mysqli_fetch_array($result))
+  {
+   echo ("<b><h1><center>Hello, {$row['username']}</h1></br>");
+    echo ("<b><center>Firstname: {$row['fname']}</br></br>");
+   echo ("<b><center>Surname: {$row['sname']}</br></br>");
+    echo ("<b><center>Telephone: {$row['telephone']}</br></br>");
+   echo ("<b><center>Email: {$row['email']}</br></br>");
+
+
+  }
+ ?>
+<p><a href ="logout.php" style ="color: red;">logout</a></p>
+<p><a href ="delete.php" style ="color: red;">Delete profile</a></p>
+<?php 
 } else {
     echo "Please log in first to see this page.";
 }
+
 ?>
 
 
 
-<!----
-<form action ="upload.php" method="POST" entype="multipart/form-data">
-	<input type="file" name="file">
-	<button type="submit">upload</button>
-</form> --->
-  <!-- notification message -->
 
-
-
-   
 
    <footer id="footer">
   <div class="top sm-hidden">

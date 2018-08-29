@@ -17,8 +17,6 @@
 				echo "The two passwords do not match";
   			}
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM customer WHERE username='$username' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);

@@ -1,99 +1,89 @@
-
 <!DOCTYPE html>
+
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Hilton Hotel || Dublin </title>
-	<link rel="stylesheet" href="../css/normalize.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/responsive.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
-
-<?php
-
-$servername = "mysql.hostinger.kr";
-$database = "u375181454_hotel";
-$username = "u375181454_juhee";
-$password = "dst1738";
-// Create connection
-$dbConnect = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$dbConnect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-			if(isset($_POST['quantityAdults'])){
-						$quantityAdults = $_POST['quantityAdults'];
-					}
-
-					if(isset($_POST['quantityChildren'])){
-						$quantityChildren = $_POST['quantityChildren'];
-					}
-
-					if(isset($_POST['checkin'])){
-						$checkin = $_POST['checkin'];
-					}
-
-					if(isset($_POST['checkout'])){
-						$checkout = $_POST['checkout'];
-					}
-					$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
-					$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
-					$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
-					$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
-					$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
-							SELECT room_id FROM bookings
-							where (check_in between '$datestart' AND '$dateend')OR
-						(check_out between '$dateend' AND '$datestart'))";
-
+    <head>
+        <meta charset="utf-8">
+        <title>vaykay travels || Dublin </title>
     
-				if($re = $dbConnect->query($query)){
-				   printf("Errormessage: %s\n", $dbConnect->error);
-			 while ($row = $re->fetch_assoc()) {
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/form.css">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+   <header id="header">
+  <div class="center">
+    <h1 class="logo"> </h1>
+    <nav class="link">
+      <h2 class="hidden">navigation</h2>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li ><a href="about.html">About</a></li>
+        <li><a href="flight.html">Flights</a></li>
+        <li><a href="cruise.html">Cruise</a></li>
+        <li><a href="package.html">Packages</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 
-		    echo '<div class="container">
-				  <h1>Search Results</h1>
-				  <h2 class="lead"><strong class="text-danger"></strong> results were found for the search.</h2>
-
-				  <section class="col-xs-12 col-sm-6 col-md-12">
-				  <article class="search-result row">
-				  <div class="col-xs-12 col-sm-12 col-md-3">
-				  <class="thumbnail"><img src="../' . $row['img'] .'"/></a></div>
-				  <div class="col-xs-12 col-sm-12 col-md-2">';
-
-		    echo '<ul class="meta-search">
-				  <li><i class="glyphicon glyphicon-user"></i> <span>' . $row['Room_Size'] . '</span></li>
-				  <li><i class="glyphicon glyphicon-tags"></i> <span>' . $row['Room_name'] . '</span></li>
-				  <li><i class="glyphicon glyphicon-euro"></i> <span>' . $row['Rate'] . '</span></li>
-			      </ul></div>';
-
-		    echo '
-			     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				 <h3><a href="#" title="">' . $row['Room_name'] . '</a></h3>
-				 <p>' . $row['Description'] . '</p>
-				 <form action="view_room.php">
-				   <input type="hidden" name="room_id" value="' . $row['Room_id'] . '">
-				   <input type="submit" value="View Room">
-				 </form>
-			     </div>
-			     <span class="clearfix border"></span>
-		        </article>';
-		}
-}
-
-	?>
-	  </div>
-	</section>
-
+<div id="adver">
+  <img src="img/italy.jpg" alt="main" style="width:100%; height: 400px;">
+    <hgroup>
+      <h2>Profile</h2>
+    </hgroup>
 </div>
 
-	</body>
+
+<!----
+<form action ="upload.php" method="POST" entype="multipart/form-data">
+	<input type="file" name="file">
+	<button type="submit">upload</button>
+</form> --->
+  <!-- notification message -->
+
+
+
+   
+
+   <footer id="footer">
+  <div class="top sm-hidden">
+    <div class="column left">
+      <h2>About</h2>
+      <hr>
+      <ul>
+        <li><a href ="about.html"> How many Countries? </a></li>
+        <li><a href ="about.html"> Best for our guests</a></li>
+        <li><a href ="package.html"> Package trips</a></li>
+        <li><a href ="about.html"> Travel services</a></li>
+      </ul>
+    </div>
+    <div class="column mid">
+      <h2>JOIN US!</h2>
+      <hr>
+      <ul>
+        <button onclick ="location.href='login.php'" class="button active" >Login</button>  
+        <button onclick ="location.href='register.php'"class="button" >Register</button>
+        <li><a href ="customer.php">My Profile</a></li>
+        <li><a href ="mybooking.php">My Bookings</a></li>
+      </ul>     
+    </div>
+    <div class="column right">
+      <h2>Contact</h2>
+      <hr>
+      <ul>
+        <li>Email: info@vaykaytravels.ie</li>
+        <li>Phone: 01-2233432.</li>
+        <li>Address: 44 Merrions Square, Dublin, Ireland.</li>
+      </ul>     
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="bottom">Copyright &copy; VayKay Travels 2018 | Travel Agency</div>
+</footer>
+
+</body>
 </html>

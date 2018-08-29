@@ -1,6 +1,8 @@
+<?php
+include("log_server.php"); 
+?>
 
 <!DOCTYPE html>
-<?php include('log_server.php') ?> 
 
 <html>
     <head>
