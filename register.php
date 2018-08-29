@@ -1,5 +1,5 @@
 <html>
-<?php include('reg_server.php') ?> 
+<?php include('log_server.php') ?> 
 
     <head>
         <meta charset="utf-8">
@@ -17,6 +17,7 @@
     </head>
     
 <body>
+
      <header id="header">
   <div class="center">
     <h1 class="logo"> </h1>
@@ -41,10 +42,11 @@
 </div>
 
 <br>
-<?php if (isset($_SESSION['error']))
+
+<?php if (isset($_SESSION['errormsg']))
 {
-    echo"<p style='color:red; text-align:center;'>".$_SESSION['error']."</p>";
-    unset($_SESSION['error']);
+    echo"<p style='color:red; text-align:center;'>".$_SESSION['errormsg']."</p>";
+    unset($_SESSION['errormsg']);
 }
 ?>
 

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<?php include("log_server.php");?>
-<?php
-  session_start();  
-  $db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
- ?>
+<?php include('log_server.php');?>
+
 
 <html>
     <head>
@@ -46,7 +43,7 @@
 
 <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
   
-  $sql = "SELECT username, fname, sname, email, telephone FROM CUSTOMER WHERE USERNAME = '" . $_SESSION['username'] . "'";
+  $sql = "SELECT custid, username, fname, sname, email, telephone FROM CUSTOMER WHERE USERNAME = '" . $_SESSION['username'] . "'";
   $result = mysqli_query($db, $sql);
   while($row = mysqli_fetch_array($result))
   {
@@ -56,18 +53,16 @@
     echo ("<b><center>Telephone: {$row['telephone']}</br></br>");
    echo ("<b><center>Email: {$row['email']}</br></br>");
 
-
   }
  ?>
-<p><a href ="logout.php" style ="color: red;">logout</a></p>
-<p><a href ="delete.php" style ="color: red;">Delete profile</a></p>
+ <input type="button" value ="delete" class = "delete" onclick = "location.href = 'delete.php'; return false"></br>
+<input type="button" value ="edit" class = "edit" onclick = "location.href = 'edit_profile.php'; return false"></br>
 <?php 
 } else {
     echo "Please log in first to see this page.";
 }
 
 ?>
-
 
 
 
