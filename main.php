@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!---------- <?php include 'dbConnect.php'; ?> -------->
+<?php include ('result.php'); ?> 
 <html>
 
     <head>
@@ -36,7 +36,7 @@
   <img src="img/italy.jpg" alt="main" style="width:100%; height: 400px;">
   <div class="center"></div>
   <div class="center copy">
-    <input type="text" class="search" placeholder="Enter a country..." id="default" list="languages">
+    <input type="text" class="search" name="country" placeholder="Enter a country..." id="default" list="languages">
 
   <datalist id="languages">
     <option value="Thailand">
@@ -49,7 +49,7 @@
     <option value="Greece">
   </datalist>
 
-    <button class="button" onclick ="location.href='result.php'">Search</button>    
+    <button class="button" method="post" name="search" onclick ="location.href='result.php'">Search</button>    
   </div>
 </div>
 
@@ -61,7 +61,7 @@
     <h2>Popular Picks</h2>
     <p>Local and overseas travel deals<span class="sm-hidden">, flights, cruises, holiday packages and many more.</span></p>
   </section>
-  <figure><a href = " ">
+  <figure>
     <img src="img/bangkok.jpg" alt="Thailand - Bangkok for 6 days">
     <figcaption>
       <div class="tour_title">
@@ -73,10 +73,9 @@
         <span class="price">From € <strong>850</strong></span>
       </div>
     
-    </figcaption></a>
+    </figcaption>
   </figure>
   <figure>
-    <a href = " ">
     <img src="img/maldives.jpg" alt="Maldives Island for 4 days">
     <figcaption>
       <div class="tour_title">
@@ -88,10 +87,9 @@
         <span class="price">From € <strong>799</strong></span>
       </div>
 
-    </figcaption></a>
+    </figcaption>
   </figure>
   <figure>
-    <a href = " ">
     <img src="img/beijing.jpg" alt="Beijing for 5 days">
     <figcaption>
       <div class="tour_title">
@@ -103,10 +101,9 @@
         <span class="price">From € <strong>1299</strong></span>
       </div>
       
-    </figcaption></a>
+    </figcaption>
   </figure>
   <figure>
-    <a href = " ">
     <img src="img/tokyo.jpg" alt="Toyama-Osaka-Tokyo for 8 days">
     <figcaption>
       <div class="tour_title">
@@ -117,10 +114,9 @@
         <em class="sat">Rating 96%</em>
         <span class="price">From € <strong>1498</strong></span>
       </div>
-    </figcaption></a>
+    </figcaption>
   </figure>
   <figure>
-    <a href = " ">
     <img src="img/sydney.jpg" alt="Sydney for 7 days">
     <figcaption>
       <div class="tour_title">
@@ -132,10 +128,9 @@
         <span class="price">From € <strong>1499</strong></span>
       </div>
       
-    </figcaption></a>
+    </figcaption>
   </figure>
   <figure>
-    <a href = " ">
     <img src="img/bali.jpg" alt="Indonesia for 4 days">
     <figcaption>
       <div class="tour_title">
@@ -147,7 +142,7 @@
         <span class="price">From € <strong>699</strong></span>
       </div>
      
-    </figcaption></a>
+    </figcaption>
   </figure>
  <section class="center">
     <h2>More great deals</h2>

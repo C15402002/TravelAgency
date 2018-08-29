@@ -50,7 +50,7 @@
 }
 ?>
 
-<form id="msform" action = "register.php" method = "post">
+<form id="msform" action = "log_server.php" method = "post">
   
   <!-- progressbar -->
   <ul id="progressbar">
@@ -66,6 +66,7 @@
     <input type = "text" name = "username" placeholder = "Username " required>
     <input type="password" name="password_1" placeholder="Password" required>
     <input type="password" name="password_2" placeholder="Confirm Password" required>
+    <img src="images/profile.jpg" width="80" height="80"/><br /><input type="file"  name="userfile" />
     <input type="button" name="next" class="next action-button" value="Next" >
          <div class="forgot">
         <a href="login.php">Already have an account?</a>

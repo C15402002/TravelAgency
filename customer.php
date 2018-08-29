@@ -2,6 +2,7 @@
 <?php include('log_server.php');?>
 
 
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -43,20 +44,32 @@
 
 <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
   
-  $sql = "SELECT custid, username, fname, sname, email, telephone FROM CUSTOMER WHERE USERNAME = '" . $_SESSION['username'] . "'";
+  $sql = "SELECT custid, fname, sname, email, telephone, username, password, profileext FROM CUSTOMER WHERE USERNAME = '" . $_SESSION['username'] . "'";
   $result = mysqli_query($db, $sql);
   while($row = mysqli_fetch_array($result))
   {
-   echo ("<b><h1><center>Hello, {$row['username']}</h1></br>");
-    echo ("<b><center>Firstname: {$row['fname']}</br></br>");
-   echo ("<b><center>Surname: {$row['sname']}</br></br>");
-    echo ("<b><center>Telephone: {$row['telephone']}</br></br>");
-   echo ("<b><center>Email: {$row['email']}</br></br>");
-
+  $custid =$row['custid'];
+  $fname=$row['fname'];
+  $sname=$row['sname'];
+  $email=$row['email'];
+  $telephone=$row['telephone'];
+  $username=$row['username'];
+  $password=$row['password']; 
+  $uploadimage=$row['profileext']; 
   }
- ?>
- <input type="button" value ="delete" class = "delete" onclick = "location.href = 'delete.php'; return false"></br>
-<input type="button" value ="edit" class = "edit" onclick = "location.href = 'edit_profile.php'; return false"></br>
+ ?> 
+ <p align="center" valign="top"><h1> Hello, <?php       echo  $username;                ?></h1></p>
+ <p align="center" valign="top"><?php if ($uploadimage!=""){?><a href="photoupdate.php?custid=<?php echo $custid;?>"><img src="<?php echo $uploadimage;?>" width="100" height="113" /></a><?php } else {?><a href="photoupdate.php?custid=<?php echo $custid;?>"><img src="user/default.gif" width="100" height="100" /></a><?php }?></p> 
+
+    <p align="center" valign="top"><?php       echo  $fname;                  ?></p>
+    <p align="center" valign="top"><?php       echo  $sname;                     ?></p>
+    <p align="center" valign="top"><?php      echo  $email;               ?></p>
+    <p align="center" valign="top"><?php       echo  $telephone;               ?></p>
+   
+
+<td ><input type="button" value ="delete" class = "delete" onclick = "location.href = 'delete.php'; return false"></td>
+<td><input type="button" value ="edit" class = "edit" onclick = "location.href = 'edit_profile.php'; return false"></td>
+<td><input type="button" value ="logout" class = "logout" onclick = "location.href = 'logout.php'; return false"></td>
 <?php 
 } else {
     echo "Please log in first to see this page.";
