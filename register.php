@@ -25,9 +25,9 @@
       <h2 class="hidden">navigation</h2>
       <ul>
         <li><a href="main.php">Home</a></li>
-        <li ><a href="about.php">About</a></li>
+        <li ><a href="about.html">About</a></li>
         <li><a href="flight.php">Flights</a></li>
-        <li><a href="cruise.php">Cruise</a></li>
+        <li><a href="cruise.html">Cruise</a></li>
         <li><a href="package.php">Packages</a></li>
       </ul>
     </nav>
@@ -66,7 +66,8 @@
     <input type = "text" name = "username" placeholder = "Username " required>
     <input type="password" name="password_1" placeholder="Password" required>
     <input type="password" name="password_2" placeholder="Confirm Password" required>
-    <img src="images/profile.jpg" width="80" height="80"/><br /><input type="file"  name="userfile" />
+    Choose a profile picture:
+    <input type="file"  name="userfile" required >
     <input type="button" name="next" class="next action-button" value="Next" >
          <div class="forgot">
         <a href="login.php">Already have an account?</a>

@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <!---------- <?php include 'dbConnect.php'; ?> -------->
+<?php
+$username="username";
+$password="password";
+$database="your_database";
+$mysqli = new mysqli("localhost", $username, $password, $database); @mysql_select_db($database) or die( "Unable to select database");
+$query2="SELECT * FROM tablename";
+$result=$mysqli->query($query2);
+$num=$mysqli->mysqli_num_rows($result);?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -85,60 +93,66 @@
         <tbody>
           <tr>
             <td>Phi Phi Island</td>
-            <td>18/06</td>
+            <td>15/06/2018</td>
             <td class="price">€599</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>London</td>
-            <td>23/05</td>
-            <td class="price">$1180</td>
+            <td>Tokyo</td>
+            <td>01/07/2018</td>
+            <td class="price">€1080</td>
           <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>HongKong</td>
-            <td>01/07</td>
-            <td class="price">$260</td>
+            <td>Kyoto</td>
+            <td>01/06/2018</td>
+            <td class="price">€875</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>Tokyo</td>
-            <td>22/08</td>
-            <td class="price">$780</td>
+            <td>Beijing</td>
+            <td>01/08/18</td>
+            <td class="price">€789</td>
            <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>Dubai</td>
-            <td>12/06</td>
-            <td class="price">$1298</td>
-            <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
-          </tr>
-          <tr>
-            <td>Rome</td>
-            <td>21/02</td>
-            <td class="price">$998</td>
+            <td>Xi'An</td>
+            <td>01/07/18</td>
+            <td class="price">€850</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
             <td>Sydney</td>
+            <td>01/08/2018</td>
+            <td class="price">€980</td>
+            <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+          <tr>
+            <td>Melbourne</td>
             <td>20/09</td>
             <td class="price">$1113</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>Seoul</td>
+            <td>Madrid</td>
             <td>18/07</td>
             <td class="price">$650</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>Paris</td>
+            <td>Venice</td>
             <td>11/04</td>
             <td class="price">$1580</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
           </tr>
           <tr>
-            <td>Seattle</td>
+            <td>Capri</td>
+            <td>16/03</td>
+            <td class="price">$1398</td>
+            <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>
+          </tr>
+           <tr>
+            <td>Athens</td>
             <td>16/03</td>
             <td class="price">$1398</td>
             <td><a href="booking.php">Book <span class="sm-hidden">now</span></a></td>

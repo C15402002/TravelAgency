@@ -70,12 +70,13 @@ if (isset($_POST['log_submit']))
 		$email =  $_REQUEST['email'];
 		$telephone =  $_REQUEST['telephone'];
 
+
 		if ($password_1 != $password_2) {
 				$_SESSION['errormsg'] = "Incorrect username/password";
 			return;
   			}
   	
-		$query = "INSERT INTO customer (fname, sname, email, telephone, username, password, profileext)
+		$query = "INSERT INTO customer (fname, sname, email, telephone, username, password, uploadimage)
 			VALUES('$fname', '$sname', '$email', '$telephone', '$username', '$password_1', '$uploadimage')";
 			
 		if (mysqli_query($db, $query)){

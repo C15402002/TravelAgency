@@ -1,7 +1,10 @@
 <?php
   session_start();
   $db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
-  $check = $_SESSION['username'];
+
+  if (isset($_POST['delete']))
+  {
+    $check = $_SESSION['username'];
   $query = "SELECT username from customer where username = '$check'";
   $result=mysqli_query($db,$query);
   $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -18,9 +21,12 @@
         echo "<a href='main.php'> Back to main page </a>";
         session_destroy();
   }
-  else
-  {
-    header("Location:customer.php");
-    echo "ERROR!";
+   
   }
+   else
+    {
+      echo "Deletion cancelled";
+      echo "<a href='customer.php'> Back to main page </a>";
+      
+    }
 ?>

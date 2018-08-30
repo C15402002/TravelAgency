@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include ('result.php'); ?> 
+<?php include ('server.php'); ?> 
 <html>
 
     <head>
@@ -23,9 +23,9 @@
       <h2 class="hidden">navigation</h2>
       <ul>
         <li class="active"><a href="main.php">Home</a></li>
-        <li><a href="about.php">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="flight.php">Flights</a></li>
-        <li><a href="cruise.php">Cruise</a></li>
+        <li><a href="cruise.html">Cruise</a></li>
         <li><a href="package.php">Packages</a></li>
       </ul>
     </nav>
@@ -34,26 +34,8 @@
 
 <div id="adver">
   <img src="img/italy.jpg" alt="main" style="width:100%; height: 400px;">
-  <div class="center"></div>
-  <div class="center copy">
-    <input type="text" class="search" name="country" placeholder="Enter a country..." id="default" list="languages">
 
-  <datalist id="languages">
-    <option value="Thailand">
-    <option value="Japan">
-    <option value="China">
-    <option value="Australia">
-    <option value="Spain">
-    <option value="Philipines">
-    <option value="Italy">
-    <option value="Greece">
-  </datalist>
-
-    <button class="button" method="post" name="search" onclick ="location.href='result.php'">Search</button>    
-  </div>
 </div>
-
-    <script  src="js/gethint.js"></script>
 
 
 <div id="tour">
