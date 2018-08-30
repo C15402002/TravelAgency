@@ -1,3 +1,5 @@
+
+
 <?php
 
     $db = mysqli_connect('localhost', 'root', '') or die(mysql_error());
@@ -17,25 +19,24 @@
    $login_session = $row['username'];
 
 
-  if(isset($_POST['tourid']) && isset($_POST['Book']))
+  if(isset($_POST['tourid']) && isset($_POST['Unreserve']))
     {
-      $Booktour = $_POST['tourid'];
+      $tourid = $_POST['tourid'];
         
         $sql_query = "";
 
-        $sql_query = "UPDATE tour SET booked = 'Y' WHERE tourid = '".$Booktour."'";  
+        $sql_query = "UPDATE tour SET booked = 'N' WHERE tourid = '".$tourid."'";  
         mysqli_query($db, $sql_query);
         
         $date = date("Y-m-d");
         
-        $sql = "INSERT INTO booking (tourid, userName, DATEOFPURCHASE)
-            VALUES ('$Booktour','$login_session','$date')";
+        $sql = "DELETE FROM booking WHERE tourid ='$tourid'";
             
         mysqli_query($db, $sql);
         
-        echo $Booktour;
+        echo $tourid;
         echo"Worked";
-        header("Location:result.php");
+        header("Location:profile.php");
     }
     else
     {

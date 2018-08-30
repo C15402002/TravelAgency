@@ -29,4 +29,6 @@
       echo "<a href='customer.php'> Back to main page </a>";
       
     }
+
 ?>
+

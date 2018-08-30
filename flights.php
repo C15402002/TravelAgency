@@ -34,28 +34,29 @@
 
 <?php
 
-	$db = mysql_connect('localhost', 'root', '') or die(mysql_error());
-	mysql_select_db("Library") or die("Failure to connect");
+	$db = mysqli_connect('localhost', 'root', '') or die(mysqli_error());
+	mysqli_select_db($db, "vaykay") or die("Failure to connect");
 	
 	if(isset($_POST['search']))
 	{
 		$s = $_POST['search'];
 		
-		$sql="SELECT * FROM Books WHERE  Author LIKE '%" . $s . "%' OR BookTitle LIKE '%" . $s  ."%'";
-		$results = mysql_query($sql);
+		$sql="SELECT country, city, price FROM TOUR WHERE  COUNTRY LIKE '%" . $s . "%' OR CITY LIKE '%" . $s  ."%'";
+		$results = mysqli_query($db, $sql);
 		
-		if (mysql_num_rows($results) != 0)
+		if (mysqli_num_rows($results) != 0)
 		{	
-			while($row = mysql_fetch_array($results))
+			while($row = mysqli_fetch_array($results))
 			{
-            	$ISBN = $row['ISBN'];
-            	$BookTitle=$row['BookTitle'];
-                $Author  =$row['Author'];
-                $CategoryId=$row['CategoryID'];
+            	$country = $row['country'];
+            	$city=$row['city'];
+                $price  =$row['price'];
+
 			
-				echo ("<p1><center><b>ISBN:</b> {$row['ISBN']}</br>");
-			    echo ("<b>Book Title:</b> {$row['BookTitle']}</br>");
-				echo ("<b>Author:</b> {$row['Author']}</br></b><br></p1>");
+				echo ("<p1><center><b>ISBN:</b> {$row['country']}</br>");
+			    echo ("<b>Book Title:</b> {$row['city']}</br>");
+				echo ("<b>Author:</b> {$row['price']}</br></b><br></p1>");
+
 				echo ("<form method='post' action='Reserve.php'><input type='hidden' name='ISBN' value='{$row['ISBN']}'>");
 				echo ("<input type='submit' value='Reserve' name='Reserve'></form></center>");
 			}

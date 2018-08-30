@@ -1,28 +1,6 @@
 <!DOCTYPE html>
-<?php
 
-if(isset($_POST['search']))
-{
-    $valueToSearch = $_POST['valueToSearch'];
-    // search in all table columns
-    // using concat mysql function
-    $query = "SELECT price, country, city, depdate, arrdate FROM `tour` WHERE tourtype = 'flight' LIKE '%".$valueToSearch."%'";
-    $search_result = filterTable($query);
-    
-}
- else {
-    $query = "SELECT * FROM `tour`";
-    $search_result = filterTable($query);
-}
 
-function filterTable($query)
-{
-    $connect = mysqli_connect("localhost", "root", "", "vaykay");
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
-}
-
-?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -32,14 +10,7 @@ function filterTable($query)
         <link rel = "stylesheet" href="css/flight.css">
    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <style>
 
-            table,th,tr,td
-            {
-                border: 1px solid black;
-            }
-
-        </style>
 
 
     </head>
@@ -69,26 +40,48 @@ function filterTable($query)
 </div>
 <br>
 
-    <form action="flight.php" method="post">
-            <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
-            <input type="submit" name="search" value="Filter"><br><br>
+    <<center><form method="post">
+    <br><b><p><font font size="6" >Search for a flight </font></p></b><br>
+      <input type="text" name="search" placeholder="country, city..."style="height:25px;width:200px;"></form><br><br></h1>
+  </center></body>
             
-            <table>
-                <tr>
-                    <th>Price</th>
-                    <th>Country</th>
-                    <th>City</th>
-                </tr>
+           <?php
 
-                   <?php while($row = mysqli_fetch_array($search_result)): ?>
-                <tr>
-                    <td><?php echo $row['price'];?></td>
-                    <td><?php echo $row['country'];?></td>
-                    <td><?php echo $row['city'];?></td>
-                </tr>
-                <?php endwhile ?>
-              </table>
-            </form>
+  $db = mysqli_connect('localhost', 'root', '') or die(mysqli_error());
+  mysqli_select_db($db, "vaykay") or die("Failure to connect");
+  
+  if(isset($_POST['search']))
+  {
+    $s = $_POST['search'];
+    
+    $sql="SELECT tourid, country, city, price FROM TOUR WHERE  COUNTRY LIKE '%" . $s . "%' OR CITY LIKE '%" . $s  ."%'";
+    $results = mysqli_query($db, $sql);
+    
+    if (mysqli_num_rows($results) != 0)
+    { 
+      while($row = mysqli_fetch_array($results))
+      {
+            $tourid = $row['tourid'];
+              $country = $row['country'];
+              $city=$row['city'];
+                $price  =$row['price'];
+
+      
+        echo ("<thead><tr><td><center><b>Country:</b> {$row['country']}</td>");
+          echo ("<td><b> City:</b> {$row['city']}</td>");
+        echo ("<td><b> Price: €</b> {$row['price']}</td></tr></thead><br>");
+
+       echo ("<form method='post' action='booking.php'><input type='hidden' name='tourid' value='{$row['tourid']}'>");
+        echo ("<input type='submit' value='Book' name='Book'></form></center>");
+      }
+    }
+    else
+    {
+    echo "<center><p1>No matching book of that title/author.</p1></center>";
+    }
+  }
+?>
+            
  <div class="list flight">
 <div class="latest">
       <h2>Browse latest</h2>

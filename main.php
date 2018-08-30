@@ -235,8 +235,7 @@ function showSlides(n) {
 
 
 </div>
-  <!---<?php include('footer.php'); ?>-->
-<!-- footer end -->
+
  
 </body>
 </html>

@@ -69,9 +69,11 @@
     <p align="center" valign="top">Telephone: <?php       echo  $telephone;               ?></p>
    
 
-<td ><input type="button" value ="delete" class = "delete" onclick = "location.href = 'delete.php'; return confirm('Are you sure you want to delete?')"></td>
+
+  <td><input type="button" value ="delete" class = "delete" onclick = "location.href = 'delete.php'; return confirm('Are you sure you want to delete?')"></td>
 <td><input type="button" value ="edit" class = "edit" onclick = "location.href = 'edit_profile.php'; return false"></td>
 <td><input type="button" value ="logout" class = "logout" onclick = "location.href = 'logout.php'; return false"></td>
+<?php include('result.php');?>
 <?php 
 } }else {
     echo "Please log in first to see this page.";
