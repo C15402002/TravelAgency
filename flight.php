@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <?php
-  session_start();
 
-  
-  $db = mysqli_connect("localhost", "root", "", "vaykay") or die(mysqli_error());
-
-if (isset($_POST['schfly'])){
-  $depdate = $_POST['depdate'];
-  $retdate = $_POST['retdate'];
-  $query = mysqli_query($db,"select country from place where ");
+if(isset($_POST['search']))
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT price, country, city, depdate, arrdate FROM `tour` WHERE tourtype = 'flight' LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query);
+    
+}
+ else {
+    $query = "SELECT * FROM `tour`";
+    $search_result = filterTable($query);
 }
 
-  ?>
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "", "vaykay");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -21,6 +32,14 @@ if (isset($_POST['schfly'])){
         <link rel = "stylesheet" href="css/flight.css">
    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+
+            table,th,tr,td
+            {
+                border: 1px solid black;
+            }
+
+        </style>
 
 
     </head>
@@ -49,35 +68,28 @@ if (isset($_POST['schfly'])){
     </hgroup>
 </div>
 <br>
-  <div class="list flight">
-    <form action="flight.php" method = "POST">
-      <h2>Flights booking</h2>
-      <div class="ftype">
-        Search for a flight
-      </div>
-      <div class="location">
-        <p>
-          <label for="to">To</label>
-          <input type="text" name="to" id="to" placeholder="Type To Location">
-        </p>
-      </div>
-      <div class="date">
-        <p>
-          <label for="depart">Depart date</label>
-          <input type="text" name="depart" id="depart" placeholder="Type Departing Date">
-        </p>
-        <p>
-          <label for="return">Return date</label>
-          <input type="text" name="amount" id="return" placeholder="Type Return Date">
-        </p>
-      </div>
-      <div class="schbtn">
-        <p>
-          <button type="submit" name ="schfly" class="schfly" onclick ="location.href='result.php'">Search</button>
-        </p>
-      </div>
-    </form>
 
+    <form action="flight.php" method="post">
+            <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
+            <input type="submit" name="search" value="Filter"><br><br>
+            
+            <table>
+                <tr>
+                    <th>Price</th>
+                    <th>Country</th>
+                    <th>City</th>
+                </tr>
+
+                   <?php while($row = mysqli_fetch_array($search_result)): ?>
+                <tr>
+                    <td><?php echo $row['price'];?></td>
+                    <td><?php echo $row['country'];?></td>
+                    <td><?php echo $row['city'];?></td>
+                </tr>
+                <?php endwhile ?>
+              </table>
+            </form>
+ <div class="list flight">
 <div class="latest">
       <h2>Browse latest</h2>
       <table>
